@@ -1,0 +1,104 @@
+[33m#######################################################################[0m
+[33mMEGA-LINTER HAS A NEW V6 VERSION at https://github.com/oxsecurity/megalinter .
+Please upgrade your configuration by running the following command at the root of your repository (requires node.js): 
+[32mnpx mega-linter-runner --upgrade[0m[0m
+[33m#######################################################################[0m
+----------------------------------------------------------------------------------------------------
+-------------------------------------------- MegaLinter --------------------------------------------
+----------------------------------------------------------------------------------------------------
+ - Image Creation Date: 2022-07-10T08:31:30Z
+ - Image Revision: 7b2c5402f
+ - Image Version: v5
+----------------------------------------------------------------------------------------------------
+The MegaLinter documentation can be found at:
+ - https://megalinter.github.io
+----------------------------------------------------------------------------------------------------
+GITHUB_REPOSITORY: 
+GITHUB_REF: 
+GITHUB_RUN_ID: 
+
+
+Skipped linters: ACTION_ACTIONLINT, ANSIBLE_ANSIBLE_LINT, BASH_EXEC, BASH_SHELLCHECK, BASH_SHFMT, COPYPASTE_JSCPD, CREDENTIALS_SECRETLINT, CSS_SCSS_LINT, CSS_STYLELINT, DOCKERFILE_DOCKERFILELINT, DOCKERFILE_HADOLINT, EDITORCONFIG_EDITORCONFIG_CHECKER, ENV_DOTENV_LINTER, GIT_GIT_DIFF, GRAPHQL_GRAPHQL_SCHEMA_LINTER, GROOVY_NPM_GROOVY_LINT, HTML_HTMLHINT, JSON_ESLINT_PLUGIN_JSONC, JSON_JSONLINT, JSON_PRETTIER, JSON_V8R, KOTLIN_KTLINT, KUBERNETES_KUBECONFORM, KUBERNETES_KUBEVAL, MARKDOWN_REMARK_LINT, OPENAPI_SPECTRAL, PROTOBUF_PROTOLINT, SNAKEMAKE_LINT, SNAKEMAKE_SNAKEFMT, SPELL_CSPELL, SPELL_MISSPELL, SQL_SQLFLUFF, SQL_SQL_LINT, TEKTON_TEKTON_LINT, XML_XMLLINT, YAML_PRETTIER, YAML_V8R, YAML_YAMLLINT
+To receive reports as email, please set variable EMAIL_REPORTER_EMAIL
+Listing all files in directory [/workspace], then filter with:
+- File extensions: .md
+- Excluding .gitignored files [0]: 
+Kept [5] files on [14] found files
+
++----MATCHING LINTERS-------------------+----------+----------------+------------+
+| Descriptor | Linter                   | Criteria | Matching files | Format/Fix |
++------------+--------------------------+----------+----------------+------------+
+| MARKDOWN   | markdownlint             | .md      | 5              | yes        |
+| MARKDOWN   | markdown-link-check      | .md      | 5              | no         |
+| MARKDOWN   | markdown-table-formatter | .md      | 5              | yes        |
++------------+--------------------------+----------+----------------+------------+
+
+
+[1m### Processed [MARKDOWN] files[0m
+- Using [markdownlint v0.31.1] https://megalinter.github.io/v5/descriptors/markdown_markdownlint
+- MegaLinter key: [MARKDOWN_MARKDOWNLINT]
+- Rules config: [.markdownlint.json]
+[36m[markdownlint] /workspace/README.md - FIXED[0m
+[markdownlint] /workspace/test-AFTER.md
+[markdownlint] /workspace/test-BEFORE.md
+[markdownlint] /workspace/test-hybride.md
+[markdownlint] /workspace/test.md
+--Error detail:
+/workspace/README.md:113 MD040/fenced-code-language Fenced code blocks should have a language specified [Context: "```"]
+/workspace/README.md:150 MD040/fenced-code-language Fenced code blocks should have a language specified [Context: "```"]
+/workspace/test-AFTER.md:1 MD041/first-line-heading/first-line-h1 First line in a file should be a top-level heading [Context: "<?xml version="1.0" encoding="..."]
+/workspace/test-AFTER.md:143 MD046/code-block-style Code block style [Expected: indented; Actual: fenced]
+/workspace/test-BEFORE.md:1 MD041/first-line-heading/first-line-h1 First line in a file should be a top-level heading [Context: "<?xml version="1.0" encoding="..."]
+/workspace/test-BEFORE.md:143 MD046/code-block-style Code block style [Expected: indented; Actual: fenced]
+/workspace/test-hybride.md:8 MD025/single-title/single-h1 Multiple top-level headings in the same document [Context: "# ⚙️ CONFIGURATION DYNAMIQUE"]
+/workspace/test-hybride.md:14 MD025/single-title/single-h1 Multiple top-level headings in the same document [Context: "# 📥 INPUT UTILISATEUR"]
+/workspace/test-hybride.md:18 MD025/single-title/single-h1 Multiple top-level headings in the same document [Context: "# 🔑 MATRICE 18 HACKS (Injecté..."]
+/workspace/test-hybride.md:28 MD025/single-title/single-h1 Multiple top-level headings in the same document [Context: "# 🔄 PIPELINE D'EXÉCUTION (FUS..."]
+/workspace/test.md:1 MD041/first-line-heading/first-line-h1 First line in a file should be a top-level heading [Context: "<?xml version="1.0" encoding="..."]
+/workspace/test.md:143 MD046/code-block-style Code block style [Expected: indented; Actual: fenced]
+
+[33m✅ Linted [MARKDOWN] files with [markdownlint]: Found 12 non blocking error(s) - (0.55s)[0m
+[Text Reporter] Generated TEXT report: /workspace/report/linters_logs/WARNING-MARKDOWN_MARKDOWNLINT.log
+
+[1m### Processed [MARKDOWN] files[0m
+- Using [markdown-link-check v3.10.2] https://megalinter.github.io/v5/descriptors/markdown_markdown_link_check
+- MegaLinter key: [MARKDOWN_MARKDOWN_LINK_CHECK]
+- Rules config: [.markdown-link-check.json]
+[markdown-link-check] /workspace/README.md
+[markdown-link-check] /workspace/test-AFTER.md
+[markdown-link-check] /workspace/test-BEFORE.md
+[markdown-link-check] /workspace/test-hybride.md
+[markdown-link-check] /workspace/test.md
+[32m✅ Linted [MARKDOWN] files with [markdown-link-check] successfully - (1.46s)[0m
+[Text Reporter] Generated TEXT report: /workspace/report/linters_logs/SUCCESS-MARKDOWN_MARKDOWN_LINK_CHECK.log
+
+[1m### Processed [MARKDOWN] files[0m
+- Using [markdown-table-formatter v1.3.0] https://megalinter.github.io/v5/descriptors/markdown_markdown_table_formatter
+- MegaLinter key: [MARKDOWN_MARKDOWN_TABLE_FORMATTER]
+- Rules config: identified by [markdown-table-formatter]
+[36m[markdown-table-formatter] /workspace/README.md - FIXED[0m
+[markdown-table-formatter] /workspace/test-AFTER.md
+[markdown-table-formatter] /workspace/test-BEFORE.md
+[markdown-table-formatter] /workspace/test-hybride.md
+[markdown-table-formatter] /workspace/test.md
+[32m✅ Linted [MARKDOWN] files with [markdown-table-formatter] successfully - (0.38s)[0m
+[Text Reporter] Generated TEXT report: /workspace/report/linters_logs/SUCCESS-MARKDOWN_MARKDOWN_TABLE_FORMATTER.log
+
++----SUMMARY--+--------------------------+---------------+-------+-------+--------+--------------+
+| Descriptor  | Linter                   | Mode          | Files | Fixed | Errors | Elapsed time |
++-------------+--------------------------+---------------+-------+-------+--------+--------------+
+| ◬ MARKDOWN  | markdownlint             | list_of_files |     5 |     1 |     12 |        0.55s |
+| ✅ MARKDOWN | markdown-link-check      | list_of_files |     5 |       |      0 |        1.46s |
+| ✅ MARKDOWN | markdown-table-formatter | list_of_files |     5 |     1 |      0 |        0.38s |
++-------------+--------------------------+---------------+-------+-------+--------+--------------+
+
+[Updated Sources Reporter] Unable to copy .mega-linter.yml to /workspace/report/updated_sources/.mega-linter.yml ([Errno 2] No such file or directory: '.mega-linter.yml')
+[Updated Sources Reporter] Unable to copy README.md to /workspace/report/updated_sources/README.md ([Errno 2] No such file or directory: 'README.md')
+[Updated Sources Reporter] copied 2 fixed source files in folder /workspace/report/updated_sources.
+Download it from artifacts then copy-paste it in your local repo to apply linters updates
+[33m#######################################################################[0m
+[33mMEGA-LINTER HAS A NEW V6 VERSION at https://github.com/oxsecurity/megalinter .
+Please upgrade your configuration by running the following command at the root of your repository (requires node.js): 
+[32mnpx mega-linter-runner --upgrade[0m[0m
+[33m#######################################################################[0m
+[33m◬ Successfully linted all files, but with ignored errors[0m

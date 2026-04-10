@@ -1,0 +1,19 @@
+Results of markdownlint linter (version 0.31.1)
+See documentation on https://megalinter.github.io/descriptors/markdown_markdownlint/
+-----------------------------------------------
+
+❌ [ERROR] for workspace /workspace
+Linter raw log:
+/workspace/README.md:113 MD040/fenced-code-language Fenced code blocks should have a language specified [Context: "```"]
+/workspace/README.md:150 MD040/fenced-code-language Fenced code blocks should have a language specified [Context: "```"]
+/workspace/test-AFTER.md:1 MD041/first-line-heading/first-line-h1 First line in a file should be a top-level heading [Context: "<?xml version="1.0" encoding="..."]
+/workspace/test-AFTER.md:143 MD046/code-block-style Code block style [Expected: indented; Actual: fenced]
+/workspace/test-BEFORE.md:1 MD041/first-line-heading/first-line-h1 First line in a file should be a top-level heading [Context: "<?xml version="1.0" encoding="..."]
+/workspace/test-BEFORE.md:143 MD046/code-block-style Code block style [Expected: indented; Actual: fenced]
+/workspace/test-hybride.md:8 MD025/single-title/single-h1 Multiple top-level headings in the same document [Context: "# ⚙️ CONFIGURATION DYNAMIQUE"]
+/workspace/test-hybride.md:14 MD025/single-title/single-h1 Multiple top-level headings in the same document [Context: "# 📥 INPUT UTILISATEUR"]
+/workspace/test-hybride.md:18 MD025/single-title/single-h1 Multiple top-level headings in the same document [Context: "# 🔑 MATRICE 18 HACKS (Injecté..."]
+/workspace/test-hybride.md:28 MD025/single-title/single-h1 Multiple top-level headings in the same document [Context: "# 🔄 PIPELINE D'EXÉCUTION (FUS..."]
+/workspace/test.md:1 MD041/first-line-heading/first-line-h1 First line in a file should be a top-level heading [Context: "<?xml version="1.0" encoding="..."]
+/workspace/test.md:143 MD046/code-block-style Code block style [Expected: indented; Actual: fenced]
+
