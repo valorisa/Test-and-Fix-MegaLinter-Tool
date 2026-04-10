@@ -108,6 +108,43 @@ MegaLinter n'est ni un linter ni un formatter : c'est un **orchestrateur intelli
 | **3. Validation croisée unifiée** | Chaque langage est linté/formatté par ses outils natifs, mais les résultats sont ramenés dans un seul rapport lisible, ancré ligne par ligne. | Flavor `documentation` → exécution parallèle → rapport HTML unique avec `sourceLine` et `ruleId` précis. |
 | **4. Idempotence & Traçabilité** | Le processus est déterministe, reproductible, et journalisé. Aucune modification silencieuse du contenu hybride. | Script PowerShell/Bash + flag `.t2_state/` + `APPLY_FIXES: none` par défaut + tests Pester. |
 
+### 🧪 Tests Réalisés avec la Flavor Documentation
+
+Nous avons validé la flavor `megalinter/megalinter-documentation` (1,5 Go) — soit 8x plus légère que la version complète (12,5 Go).
+
+#### 📋 Méthodologie de Test
+
+1. **Prérequis** : Docker installé sur la machine
+2. **Image** : `docker pull megalinter/megalinter-documentation`
+3. **Configuration** : Créer un fichier `.mega-linter.yml` avec les linters souhaités (ex: MARKDOWN, MARKDOWN_MARKDOWNLINT, MARKDOWN_TABLE_FORMATTER)
+4. **Exécution** : 
+   ```bash
+   docker run --rm -v "$(pwd):/workspace" -e "GITHUB_WORKSPACE=/workspace" -e "VALIDATE_ALL_CODEBASE=true" megalinter/megalinter-documentation
+   ```
+5. **Résultat** : Rapport généré dans le dossier `report/`
+
+#### 📊 Fichier Testé
+
+- **Nom** : `test.md` (fichier hybride XML/Markdown, 5,2 Ko)
+- **Objectif** : Observer comment MegaLinter traite un mélange de balises XML et de contenu Markdown
+
+#### 🔍 Résultats Observés
+
+| Type | Résultat | Explication |
+|------|----------|-------------|
+| ✅ **Auto-fixables** | Tables mal formatées, trailing spaces, espaces dans code spans | MegaLinter corrige automatiquement via `markdown-table-formatter` et `markdownlint --fix` |
+| ❌ **Non auto-fixables** | `#Header` sans espace, bare URLs, code block style (fenced vs indented) | Ces règles nécessitent une intervention manuelle |
+| ℹ️ **XML** | Le XML dans ```xml` ... ``` est traité comme texte brut | MegaLinter ne valide pas le XML séparément — il ne fait que du Markdown linting |
+
+#### 💡 Conclusion
+
+La flavor `documentation` (1,5 Go) est suffisante pour du Markdown pur. Pour un projet hybride MD/XML :
+- MegaLinter gère le Markdown (linting + formatage)
+- Le XML dans les blocs de code n'est pas validé séparément
+- Pour une validation XML stricte, ajouter un linter dédié (ex: `xmllint`, `tidy`)
+
+> **Tip** : Pour tester chez vous, lancez `./docker-megalinter-test.ps1` depuis la racine du projet.
+
 ### 🔄 Flux de Traitement Standardisé
 
 ```
